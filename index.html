@@ -2,13 +2,22 @@
 <html>
     <head>
         <title>Aditya's Resume</title>
+		<link href="style.css" rel="stylesheet">
     </head>
    <body>
-    <img src="https://avatars.githubusercontent.com/u/72155406?s=400&u=b37edb416cb9d5e23ac30b9b40eb8330d1a37c00&v=4" alt = "Aditya's Image" >
+   
+    <div class="profile">
+	<img src="https://avatars.githubusercontent.com/u/72155406?s=400&u=b37edb416cb9d5e23ac30b9b40eb8330d1a37c00&v=4" alt = "Aditya's Image" >
+	</div>
+	
+	<div class="profile">
     <h1> Aditya Tiwari</h1>
-    <h4> Software Engineer </h4>
-    <hr>
+    <h3> Software Engineer </h3>
+	<p>adityatiwari1312@gmail.com</p>
+	<p>Delhi, India</p>
+    </div>
     
+	<div class="formatting">
     <h2><u>Experience</u></h2>
         <p><strong>Girikon Solutions,</strong> <i>Software Trainee</i></p>
         <p>Mar'24-Present | Noida, India</p>
@@ -23,37 +32,40 @@
             <li>Leveraged Git for version control, conducted API Testing and Postman for robust testing protocols and implemented Jenkins for continuous integration. •Contributed to a dynamic and agile work environment, consistently meeting project deadlines and exceeding quality benchmarks</li>   
         </ul>
 
-        <hr>  
-
-    <h2><u>Education</u> </h2>
-    <table border="">
-        <tr>
-           <th>Education</th> 
-           <th>Institution</th> 
-           <th>Year</th>
-           <th>Result</th>
-        </tr>
-        <tr>
-            <td>B.Tech in CSE</td>
-            <td>ABESIT</td>
-            <td>2023</td>
-            <td>8.13</td>
-        </tr>
-        <tr>
-            <td>XII</td>
-            <td>RSBV</td>
-            <td>2019</td>
-            <td>72.8</td>
-        </tr>
-        <tr>
-            <td>X</td>
-            <td>Spring Bales Public School</td>
-            <td>20187</td>
-            <td>9.2</td>
-        </tr>
-    </table>
-    <hr>
-
+	</div>
+	
+	<div class="formatting">
+		<h2><u>Education</u> </h2>
+		<table>
+			<tr>
+				<th>Education</th> 
+				<th>Institution</th> 
+				<th>Year</th>
+				<th>Result</th>
+			</tr>
+			<tr>
+				<td>B.Tech in CSE</td>
+				<td>ABESIT</td>
+				<td>2023</td>
+				<td>8.13</td>
+			</tr>
+			<tr>
+				<td>XII</td>
+				<td>RSBV</td>
+				<td>2019</td>
+				<td>72.8</td>
+			</tr>
+			<tr>
+				<td>X</td>
+				<td>Spring Bales Public School</td>
+				<td>20187</td>
+				<td>9.2</td>
+			</tr>
+		</table>
+	
+	</div>
+	
+	<div class="formatting">
     <h2><u>Projects</u></h2>
     <ul>
         <li>Review Hub (SIH 2022)</li>
@@ -65,7 +77,9 @@
            <p>->Tech Interacto is a web portal which helps users to get correct information in tech from experienced people. •The website searches for peers & alumni based on the skill in which the user has queries & needs help.<br>
             ->Technology: HTML, CSS, PHP, MySQL
     </ul>
-    <hr>
+     </div>
+	 
+	 <div id = "skills" class="formatting">
     <h2><u>Skills</u></h2>
         <ul>
             <li>Java</li>
@@ -77,7 +91,8 @@
             <li>SQL</li>
             <li>Git</li>
         </ul>
-    <hr>
+   </div>
+   <div class="formatting">
         <h2><u>Connect with Me</u></h2>
         <form>
             <label for="fname">First name:</label><br>
@@ -91,6 +106,6 @@
             
             <input type="submit" value="Submit">
           </form>
-
+</div>
    </body>
 </html>

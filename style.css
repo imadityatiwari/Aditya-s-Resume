@@ -1,0 +1,43 @@
+body{
+	background-color: rgb(210,152,155);
+	font-family: cursive;
+	}
+img{
+	width:220px;
+	heigth:150px;
+}
+
+.formatting li {
+	
+}
+	
+.formatting{
+	background-color:pink;
+	border-radius: 5px;
+	padding:20px 20px;
+	margin:20px;
+	}
+table,td,th {
+	border-collapse:collapse;
+	border:2px solid black;
+	padding:5px 5px;
+	margin:10px 10px 105px 50px;
+	
+}
+p,h1{
+	margin:2px;
+}
+
+h3{
+	font-weight:350;
+	margin:4px;
+
+}
+
+.profile{
+	padding:1px 1px;
+	margin:1px 1px;
+	display:inline-block;
+	
+}
+
