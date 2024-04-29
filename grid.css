@@ -1,0 +1,110 @@
+
+.navbar>ul {
+   list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: pink;
+}
+
+.navbar li {
+    float: right;
+}
+
+.navbar li a {
+    display: block;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 14px 16px;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+}
+
+.col12 {
+    background: linear-gradient(to left, #48a1be 0%, #ff99cc 100%);
+    width: 100%;
+    padding: 10px 0px;
+    text-align: center;
+}
+
+.col6 {
+    width: 50%;
+    padding: 10px 0px;
+    text-align: center;
+    background-color: #a2b9bc;
+}
+
+.col4 {
+    width: 33.33%;
+    padding: 10px 0px;
+    text-align: center;
+    background-color: #b2ad7f;
+}
+
+.col3 {
+    width: 25%;
+    padding: 10px 0px;
+    text-align: center;
+    background-color: #878f99;
+}
+
+.col2 {
+    width: 16.66%;
+    padding: 10px 0px;
+    text-align: center;
+    background-color: #6b5b95;
+}
+
+.col1 {
+    width: 8.33%;
+    padding: 10px 0px;
+    text-align: center;
+    background-color: #bdcebe;
+
+}
+
+.col5 {
+    width: 41.65%;
+    padding: 10px 0px;
+    text-align: center;
+    background-color: #eca1a6;
+}
+
+.col7 {
+    width: 58.33%;
+    padding: 10px 0px;
+    text-align: center;
+    background-color: #b0aac0;
+}
+
+.col8 {
+    width: 66.66%;
+    padding: 10px 0px;
+    text-align: center;
+    background-color: #c2d4dd;
+}
+
+.col9 {
+    width: 75%;
+    padding: 10px 0px;
+    text-align: center;
+    background-color: rgb(86, 133, 96);
+}
+
+.col10 {
+    width: 83.33%;
+    padding: 10px 0px;
+    text-align: center;
+    background-color: rgb(150, 184, 118);
+}
+
+.col11 {
+    width: 91.66%;
+    padding: 15px 0px;
+    text-align: center;
+    background: linear-gradient(to right, #4d4ddb 0%, #ff99cc 100%);
+
+}

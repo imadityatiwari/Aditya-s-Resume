@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form</title>
+    <link href="style.css" rel="stylesheet">
+    <style>
+        form {
+            margin: 1px;
+            border: 2px solid rgb(0, 0, 0);
+            padding: 15px;
+        }
+        form>label{
+            font-size: large;
+            font-weight: bolder;
+            font: 1em sans-serif;
+        }
+        form>input,label{
+            
+            margin: 5px;
+            padding: 3px;
+        }
+
+        .userForm,
+        .formdata,
+        h2 {
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        
+    #button{
+        margin:auto;
+        margin-top: 20px; 
+        margin-bottom: 0;
+        display: flex;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="table.html">Table</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="form.html">Form</a></li>
+        </ul>
+    </div>
+    <h2>Please fill the form!</h2>
+    <div class="userForm">
+
+        <form id="userInput" onsubmit="onSubmit()">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" required><br>
+
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" required><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+
+            <label>Gender:</label>
+            <input type="radio" id="male" name="gender" value="Male">
+            <label for="male">Male</label>
+
+            <input type="radio" id="female" name="gender" value="Female">
+            <label for="female">Female</label>
+
+            <input type="radio" id="other" name="gender" value="Other">
+            <label for="other">Other</label><br>
+
+            <label>Skills:</label><br>
+            <input type="checkbox" id="html" name="skills" value="HTML">
+            <label for="html"> HTML</label><br>
+           
+            <input type="checkbox" id="css" name="skills" value="CSS">
+            <label for="css"> CSS</label><br>
+            
+            <input type="checkbox" id="js" name="skills" value="JS">
+            <label for="js">JS</label><br>
+
+            <label for="myfile">Select a file:</label> 
+            <input type="file" id="myfile" name="myfile"><br> 
+            
+
+            <input type="submit" value="Submit"  id="button"><br>
+
+        </form>
+    </div>
+
+    <div class="formdata">
+        <table id="infoTable">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Skills</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody id="infodata">
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        var form = document.getElementById("userInput");
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+            });
+
+        function onSubmit() {
+            
+            var firstname = document.getElementById("fname").value;
+            var lastname = document.getElementById("lname").value;
+            var email = document.getElementById("email").value;
+            var gender = document.querySelector('input[name="gender"]:checked').value;
+            
+            var skills =[];
+            var checkedSkills = document.querySelectorAll('input[name="skills"]:checked');
+            console.log(checkedSkills)
+            
+            checkedSkills.forEach((skill) => {
+                skills.push(skill.value);
+            });
+
+            const file = document.getElementById("myfile").files[0];
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload=function(e){
+                    const imgElement =  document.getElementById("imageDisplay");
+                    imgElement.src = e.target.result;
+                };
+                
+            
+            var newRow = document.createElement("tr");
+            newRow.innerHTML = "<td>" + firstname + "</td><td>" + lastname + "</td><td>" + email + "</td><td>" + gender + "</td><td>"+skills+"</td><td>"+ '<img id="imageDisplay" alt = "image" width="300">' + "</td>";
+            document.getElementById("infodata").appendChild(newRow);
+            document.getElementById("userInput").reset();
+
+                
+        }
+
+    </script>
+</body>
+
+</html>

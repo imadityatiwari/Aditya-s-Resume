@@ -4,16 +4,12 @@ body{
 	}
 img{
 	width:220px;
-	heigth:150px;
 }
 
-.formatting li {
-	
-}
 	
 .formatting{
 	background-color:pink;
-	border-radius: 5px;
+	border-radius: 5px; 
 	padding:20px 20px;
 	margin:20px;
 	}
@@ -21,11 +17,15 @@ table,td,th {
 	border-collapse:collapse;
 	border:2px solid black;
 	padding:5px 5px;
-	margin:10px 10px 105px 50px;
+	margin:10px ;
 	
+}
+h1{
+	text-shadow: 2px 2px pink;
 }
 p,h1{
 	margin:2px;
+
 }
 
 h3{
@@ -40,4 +40,43 @@ h3{
 	display:inline-block;
 	
 }
+.container{
+	background-color:pink;
+	border-radius: 5px;
+	padding:20px 20px;
+	margin:20px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+.div1 {
+	padding: 10px;
+	background-color: rgb(210,152,155);
 
+}
+.div2{
+	padding: 10px;
+	background-color:  rgb(210,152,155);
+}
+
+.navbar > ul{
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color:  rgb(210,152,155);
+	}
+.navbar li{
+	float: right;
+}
+.navbar li a{
+	display: block;
+	color:white;
+	text-align: center;
+	padding: 14px 16px;
+	
+}
+#button{
+	padding: 5px;
+	margin-left: 100%;
+}

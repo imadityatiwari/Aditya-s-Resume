@@ -1,0 +1,43 @@
+body{
+    background-color:rgb(210,152,155);
+}
+
+.table{
+    display: table;
+    width: 50%;
+    background-color: rgb(162, 136, 184);
+    border-spacing: 5px;
+    border-radius:4px;
+}
+.row {
+    display: table-row
+}
+.th{
+    font-weight: 900;
+}
+.th, .td{
+    display: table-cell;
+    padding: 10px 8px;
+    background-color: #fff;
+    
+}
+.row:hover > .td{
+    background-color: #e9d5d5;
+}
+.navbar > ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+   
+}
+.navbar li{
+float: right;
+}
+.navbar li a{
+display: block;
+color:white;
+text-align: center;
+padding: 14px 16px;
+
+}
