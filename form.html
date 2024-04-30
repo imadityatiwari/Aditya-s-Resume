@@ -4,19 +4,23 @@
 <head>
     <title>Form</title>
     <link href="style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8b18fc2850.js" crossorigin="anonymous"></script>
     <style>
         form {
             margin: 1px;
             border: 2px solid rgb(0, 0, 0);
             padding: 15px;
         }
-        form>label{
+
+        form>label {
             font-size: large;
             font-weight: bolder;
             font: 1em sans-serif;
         }
-        form>input,label{
-            
+
+        form>input,
+        label {
+
             margin: 5px;
             padding: 3px;
         }
@@ -30,13 +34,23 @@
             align-items: center;
             margin: 0;
         }
-        
-    #button{
-        margin:auto;
-        margin-top: 20px; 
-        margin-bottom: 0;
-        display: flex;
-    }
+
+        #button {
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 0;
+            display: flex;
+        }
+
+        .userForm span {
+            box-sizing: border-box;
+            font-size: 14px;
+            color: red;
+        }
+
+        .userForm span i {
+            color: seagreen;
+        }
     </style>
 </head>
 
@@ -54,39 +68,44 @@
 
         <form id="userInput" onsubmit="onSubmit()">
             <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname" required><br>
+            <input type="text" id="fname" name="fname" onkeyup="validateFirstName()">
+            <span id="fname-error"></span><br>
 
             <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname" required><br>
+            <input type="text" id="lname" name="lname" onkeyup="validateLastName()">
+            <span id="lname-error"></span><br>
 
             <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" required><br>
+            <input type="email" id="email" name="email" onkeyup="validateEmail()"">
+            <span id=" email-error"></span><br><br>
 
             <label>Gender:</label>
-            <input type="radio" id="male" name="gender" value="Male">
+            <input type="radio" id="male" name="gender" value="Male" required>
             <label for="male">Male</label>
 
-            <input type="radio" id="female" name="gender" value="Female">
+            <input type="radio" id="female" name="gender" value="Female" required>
             <label for="female">Female</label>
 
-            <input type="radio" id="other" name="gender" value="Other">
-            <label for="other">Other</label><br>
+            <input type="radio" id="other" name="gender" value="Other" required>
+            <label for="other">Other</label>
+
+            <span id="gender-error"></span><br><br>
 
             <label>Skills:</label><br>
             <input type="checkbox" id="html" name="skills" value="HTML">
             <label for="html"> HTML</label><br>
-           
+
             <input type="checkbox" id="css" name="skills" value="CSS">
             <label for="css"> CSS</label><br>
-            
+
             <input type="checkbox" id="js" name="skills" value="JS">
-            <label for="js">JS</label><br>
+            <label for="js">JS</label><br><br>
 
-            <label for="myfile">Select a file:</label> 
-            <input type="file" id="myfile" name="myfile"><br> 
-            
-
-            <input type="submit" value="Submit"  id="button"><br>
+            <label for="myfile">Select a file:</label>
+            <input type="file" id="myfile" name="myfile" required>
+    
+            <input type="submit" value="Submit" id="button">
+            <span id="submit-error"></span>
 
         </form>
     </div>
@@ -111,41 +130,109 @@
 
     <script>
         var form = document.getElementById("userInput");
-            form.addEventListener('submit', function (event) {
-                event.preventDefault();
-            });
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+        });
 
-        function onSubmit() {
-            
+        var fnameError = document.getElementById("fname-error");
+        var lnameError = document.getElementById("lname-error");
+        var emailError = document.getElementById("email-error");
+        var genderError = document.getElementById("gender-error");
+        var submitError = document.getElementById("submit-error");
+
+        function validateFirstName() {
+            var firstname = document.getElementById("fname").value;
+            if (firstname.length == 0) {
+                fnameError.innerHTML = "First Name is Required";
+                return false;
+            }
+            if (!firstname.match(/^[A-Za-z]/)) {
+                fnameError.innerHTML = "Enter valid first name";
+                return false;
+            }
+            fnameError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+            return true;
+        }
+        function validateLastName() {
+            var lastname = document.getElementById("lname").value;
+            if (lastname.length == 0) {
+                lnameError.innerHTML = "Last Name is Required";
+                return false;
+            }
+            if (!lastname.match(/^[A-Za-z]/)) {
+                lnameError.innerHTML = "Enter valid last name";
+                return false;
+            }
+            lnameError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+            return true;
+        }
+        function validateEmail() {
+            var email = document.getElementById("email").value;
+            if (email.length == 0) {
+                emailError.innerHTML = "Email is required";
+                return false;
+            }
+            if (!email.match(/^[a-zA-Z\._\-[0-9]*[@][a-zA-Z]*[\.][a-z]{2,4}$/)) {
+                emailError.innerHTML = "Invalid Email";
+                return false;
+            }
+            emailError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+            return true;
+        }
+        function validateForm() {
+            if (!validateFirstName() || !validateLastName() || !validateEmail) {
+                submitError.innerHTML = "Please fix above errors to submit";
+                return false;
+            }
+        }
+      
+
+        function onSubmit() { 
             var firstname = document.getElementById("fname").value;
             var lastname = document.getElementById("lname").value;
             var email = document.getElementById("email").value;
             var gender = document.querySelector('input[name="gender"]:checked').value;
-            
-            var skills =[];
+
+            var skills = [];
             var checkedSkills = document.querySelectorAll('input[name="skills"]:checked');
             console.log(checkedSkills)
-            
+
             checkedSkills.forEach((skill) => {
                 skills.push(skill.value);
             });
 
             const file = document.getElementById("myfile").files[0];
-                const reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.onload=function(e){
-                    const imgElement =  document.getElementById("imageDisplay");
-                    imgElement.src = e.target.result;
-                };
-                
-            
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function (e) {
+                const imgElement = document.getElementById("imageDisplay");
+                imgElement.src = e.target.result;
+            };
+
             var newRow = document.createElement("tr");
-            newRow.innerHTML = "<td>" + firstname + "</td><td>" + lastname + "</td><td>" + email + "</td><td>" + gender + "</td><td>"+skills+"</td><td>"+ '<img id="imageDisplay" alt = "image" width="300">' + "</td>";
+            newRow.innerHTML = "<td>" + firstname + "</td><td>" + lastname + "</td><td>" + email + "</td><td>" + gender + "</td><td>" + skills + "</td><td>" + '<img id="imageDisplay" alt = "image" width="300">' + "</td>";
             document.getElementById("infodata").appendChild(newRow);
             document.getElementById("userInput").reset();
 
-                
+            var list;
+            if(localStorage.getItem("list") == null){
+                list = [];
+            }
+            else{
+                list =JSON.parse(localStorage.getItem("list"));
+            }
+            list.push({
+                firstname:firstname,
+                lastname:lastname,
+                email:email,
+                gender:gender,
+                skills:skills,
+            });
+            localStorage.setItem("list",JSON.stringify(list));
+
         }
+        document.onload=onSubmit();
+        
 
     </script>
 </body>
